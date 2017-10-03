@@ -1,0 +1,84 @@
+CONFIGURAR MUTT EN TERMINAL LINUX
+----------------------------------
+
+1) Cifrado de la contraseña
+   - Creamos el archivo ".passwd"
+     >> Gmail1:	PASSWD
+   - Cifrado del archivo
+     >> gpg -o .passwd.gpg -r EMAIL -e .passwd
+     - EMAIL es el correo electrónico
+2) Archivo de configurarción de mutt:
+
+
+# Process the password files first
+#-------------------------------------
+set my_tmpsecret=`gpg -o ~/.mutt/.tmp -d ~/.mutt/.passwd.gpg`
+set my_password=`awk '/Gmail1:/ {print $2}' ~/.mutt/.tmp`
+set my_del=`rm -f ~/.mutt/.tmp`
+#
+set my_email=EMAIL
+set my_user=USER
+#
+set from=$my_email
+set realname=$my_user
+set imap_user=$my_email
+set imap_pass=$my_password
+#
+set folder="imaps://imap.gmail.com:993"
+set spoolfile="+INBOX"
+set hostname = gmail.com
+set mail_check = 120
+set timeout = 300
+set imap_keepalive = 300
+set postponed="+[Gmail]/Drafts"
+set record = "+[GMail]/Sent Mail"
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+#
+set move=no #para que no mueva los mensajes al salir
+set include=yes #para que incluya el mensaje recibido al responder
+set reply_to=yes
+set pager_index_lines=6
+#
+set smtp_url=smtp://"$my_email"@smtp.gmail.com:587/"
+set smtp_pass=$my_password
+#
+set editor='nano'
+set header_cache=~/.mutt/cache/headers
+set message_cachedir=~/.mutt/cache/bodies
+set certificate_file=~/.mutt/certificates
+#
+set smart_wrap=yes
+set sort='threads'
+set sort_aux='reverse-last-date-received'
+set auto_tag=yes
+set imap_check_subscribed
+#
+#
+ignore "Authentication-Results:"
+ignore "DomainKey-Signature:"
+ignore "DKIM-Signature:"
+hdr_order Date From To Cc
+alternative_order text/plain text/html *
+auto_view text/html
+bind editor complete-query
+bind editor ^T complete
+bind editor noop
+
+# Gmail-style keyboard shortcuts
+macro index,pager y "unset trash\n " "Gmail archive message"
+macro index,pager d "set trash=\"imaps://imap.googlemail.com/[GMail]/Bin\"\n " "Gmail delete message"
+macro index,pager gi "=INBOX" "Go to inbox"
+macro index,pager ga "=[Gmail]/All Mail" "Go to all mail"
+macro index,pager gs "=[Gmail]/Starred" "Go to starred messages"
+macro index,pager gd "=[Gmail]/Drafts" "Go to drafts"
+#
+set timeout=60 #Check for mail every minute
+set mail_check=5
+
+3) Ya se puede usar: 2 formas rápidas
+   - Ejecutar:
+     >> mutt
+   - Mandar un correo:
+     >> mutt -s "Asunto" destino@correo.com <<< "Aquí escribes el cuerpo del mensaje"

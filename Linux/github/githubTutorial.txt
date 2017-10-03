@@ -1,0 +1,38 @@
+Tutorial básico de Github en consola
+------------------------------------
+
+1) Instalar
+   >> apt-get install github
+2) Crear carpeta e inicializar
+   >> git init Directorio
+3) Configurar y personalizar
+   >> git config --globar user.name "nombre de usuario"
+   >> git config --global user.email "email del usuario"
+4)Crear el repo en github.com y copiar su dirección
+   >> git remote add origin https://github.com/usuario/directorio.git
+
+5) Meter archivos y todo lo que queramos y actualizar
+   >> git add .
+   >> git add archivo.c
+6) Comentar cambios para actualizar
+   >> git commit -m "Mensaje de actualización"
+7) Subirlos
+   >> git push origin master
+
+8) Crear rama
+   >> git checkout -b mirama
+9) Modificar y subir cosas
+   >> git add .
+   >> git commit -m "cambios"
+
+10) Unir cosas:
+    >> git checkout master
+    >> git merge mirama
+    >> git -d mirama
+11) actualizar
+    >> git push origin master
+
+12) Bajar cambios
+    >> git pull origin master
+13) Clonar
+    >> git clone https://github.com/usuario/directorio.git
