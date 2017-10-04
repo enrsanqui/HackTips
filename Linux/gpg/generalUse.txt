@@ -1,0 +1,45 @@
+USO GENERAL DE GPG
+------------------
+
+1) Cifrado simétrico
+   >> echo "archivo cifrado" > texto.txt
+   >> gpg -c texto.txt
+   - Nos pide una contraseña, la ponemos y nos genera un .gpg
+   - Para descifrar
+   >> gpg -d text.txt.gpg
+
+2) Cifrado asimétrico
+   - Primero hay que generar el par de claves, pública y privada.
+   >> gpg --gen-key
+   - Nos da varias opciones, así que cogemos la que queramos (puede ser para
+     firmar archivos o para firmar y cifrar.
+   - Elegimos también la longitud de la clave.
+   - Podemos ver las claves que tenemos con
+   >> gpg -k
+   - Para poder recibir archivos cifrados hay que exportar la clave pública
+   >> gpg --output CPub.gpg --export 123456789(numero de clave) y compartimos el archivo
+   - Para compartir la clave hay muchas opciones, una de ellas es subirla a un servidor de claves,
+   >> gpg --send-keys --keyserver pgp.mit.edu 123456789
+   - Para importarla desde un archivo
+   >> gpg --import CPub.gpg
+   - Si la queremos importar desde un servidor
+   >> gpg --keyserver pgp.mit.edu --recv-keys 123456789
+
+3) Cifrar archivos con clave pública
+   - Para crear un archivo cifrado con clave pública para que otro la lea
+   >> echo "Mensaje oculto" > documento.txt
+   >> gpg --encrypt --recipient 123456789 documento.txt
+   - Genera el archivo documento.txt.gpg
+
+4) Descifrar un archivo con clave privada
+   - En este caso, como la clave privada la tenemos nosotros
+   >> gpg -d documento.txt.gpg
+
+5) Firmar archivos
+   >>echo "documento firmado" > firmar.txt
+   >>gpg -u [ID Clave Privadda] --output firmar.txt.gpg --sign firmar.txt
+   - Nos pedirá la contraseña de la clave privada
+   - Una vez firmado con nuestra clave privada podemos cifrarlo con la clave pública para que otro lo lea.
+
+6) Finalmente, para verificar quién nos ha enviado el archivo
+   >> gpg --verify firmar.txt.gpg
