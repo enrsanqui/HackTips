@@ -1,0 +1,69 @@
+PROTOCOLOS Y FILTROS INTERESANTES
+----------------------------------
+
+ssl —> Protocolo SSL (capa segura).
+
+telnet —> Telnet.
+
+dns —> DNS.
+
+msnms —> Mensajería Instantánea (Messenger).
+
+ftp —> Protocolo FTP (podriamos ver el nombre de usuario y contraseña).
+
+ftp-data —> Nos permite ver los datos del protocolo FTP.
+
+ip —> Protocolo IP.
+
+ip.src==192.168.1.1 —> Dirección IP de Origen.
+
+ip.dst==192.168.1.1 —> Dirección IP de Destino.
+
+      tcp —> Protocolo TCP
+
+tcp.port==80 —> Indicamos los paquetes con el puerto deseado.
+
+tcp.srcport==80 —> Indicamos el puerto de origen.
+
+tcp.dstport==80 —> Indicamos el puerto de destino.
+
+http —> Protocolo HTTP
+
+http.host==”www.google.com” —> Queremos ver los paquetes que tengan a Google como host.
+
+http.date==”Wed, 30 Mar 2011 22:40:55 GMT” —> Paquetes con respecto a una fecha
+
+http.content_type==”application/json” —> Según el tipo. Hay más tipos, pondremos ejemplos
+
+http.content_type==”image/png” —> Imágenes PNG
+
+http.content_type==”image/gif” —> Imágenes GIF
+
+http.content_type==”image/jpeg” —> Imágenes JPEG
+
+http.content_type==”text/html” —> Archivos HTML
+
+http.content_type==”text/css” —> Hojas de estilo CSS
+
+http.content_type==”video/quicktime” —> Vídeos
+
+http.content_type==”application/zip” —> Archivos ZIP
+
+http.request.method==”GET” —> Tipo de Petición GET
+
+http.request.method==”POST” —> Tipo de Petición POST
+
+http.user_agent contains “Mozilla” —> Navegador Mozilla
+
+http.request.uri!=*—> Con esto me libro de los paquetes “NOTIFY * HTTP…”
+
+http.request.uri matches “[0-9]” —> Uso de expresiones regulares.
+
+
+Tambien es posible ver lo que la victima esté viendo a través de filtros como:
+
+- image-gif
+- png
+- jpeg
+
+Luego simplemente se exporta el mapa de bits y se visualiza la imagen fuera de wireshark

