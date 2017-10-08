@@ -1,0 +1,9 @@
+FORMATEO DE UNIDADES EN LINUX
+------------------------------
+
+1) GRÁFICAMENTE
+	- Muy Facil, con GParted es todo sencillo, pa no complicarse.
+2) Desde la terminal:
+	>> fdisk -l 		# Listamos discos disponibles
+	>> umount /dev/sdX	# Desmontamos el disco que vamos a formatear
+	>> mkfs.vfat -F 32 -n nombreUSBS /dev/sdX 		# -F 32 es FAT32

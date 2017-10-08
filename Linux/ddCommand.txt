@@ -1,0 +1,19 @@
+COMANDO dd PARA CLONACIONES Y GRABACIONES
+------------------------------------------
+
+1) SINTAXIS BÁSICA
+	>> dd if=origen of=destino bs=1M		# Clona lo que hay en origen a destino con una tasa de lectura de 1 Mb
+
+2) MOSTRAR PROGRESO
+	>> dd if=origen | pv | dd of=destino
+
+3) CLONAR DISCOS
+	>> dd if=/dev/hda of=/dev/hdb		# Clona disco hda en hdb
+	>> dd if=/dev/hda1 of=/dev/hdb		# Graba solo la primera particion
+	>> dd if=/dev/hda of=/home/hda.bin[iso] 	# Crea una imagen del disco en archivo bin o iso
+	>> for n in {1..5}; do dd if=/dev/urandom |pv| dd of=/dev/hda bs=8b conv=notrunc;		# Borra totalmente el disco metiendo caracteres aleatorios.
+	>> dd if=/dev/zero of=/dev/sdx		# Borra cualquier disco completo
+
+3) Montar ISO de un CD
+	>> dd if=/dev/cdrom of=/home/imagenCD.iso
+	>> mount -o loop imagenCD.iso /mnt/home
