@@ -1,0 +1,64 @@
+TUTORIAL PARA INSTALAR Y CONFIGURAR KALI LINUX EN RASPBERRY PI
+---------------------------------------------------------------
+
+1) Bajar la imagen
+2) En linux:
+	- Listamos los discos
+		>> df -h
+
+	- Desmontamos la particion de la tarjeta sd
+		>> sudo diskutil unmount /dev/diskX
+
+	- Montamos la imagen en el disco:
+		>> sudo dd bs=1M if=LocationOfKaliImage of=/dev/diskX
+3) Arrancamos la Raspberry Pi con Kali linux
+	- usuario: root
+	- contraseña: toor
+
+4) Update kali linux
+	>> apt-get update && apt-get upgrade && apt-get dist-upgrade
+5) Change password
+	>> passwd root
+
+6) Install OpenSSH server and set defaults to start on boot
+	>> apt-get Install openssh-server
+	>> update-rc.d -f ssh remove
+	>> update-rc.d -f ssh defaults
+
+7) Change defaults passwd
+	>> cd /etc/ssh
+	>> mkdir insecure_old
+	>> mv ssh_host* insecure_old
+	>> dpkg-reconfigure openssh-server
+	- New keys generated
+
+8) Configure to log as root
+
+	>> nano /etc/ssh/sshd_config
+	- Look for this line
+	>> PermitRootLogin yes
+	- And change it 
+	>> PermitRootLogin without-password
+
+9) Restart
+	>> sudo service ssh restart
+	>> update-rc.d -f ssh enable 2 3 4 5
+
+10) Test connection
+	>> ssh root@IP
+
+11) Add a new user
+	>> useradd -m WHT -G sudo -s /bin/bash
+
+	>> passwd WHT
+
+12) Disable login to run directly into kali
+	>> nano /etc/lightdm/lightdm.conf
+	- Look for this
+		autologin-user=root
+		autologin-user-timeout=0
+	- and uncomment them.
+
+	>> nano /etc/pam.d/ligthdm-autologin
+	auth required pam_permit.so --> Unica linea no comentada
+	

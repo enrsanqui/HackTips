@@ -1,0 +1,21 @@
+TECNICAS DE INFORMACIÓN BÁSICA
+------------------------------
+
+1) Whois
+	>> whois + [dominio]
+
+2) Nslookup
+	- Resoluciones DNS
+	>> nslookup
+	>> set q=any --> Proporciona toda la información posible.
+	>> dominio. com
+
+3) Transferencia de zona
+	>> nslookup 
+	>> set q=ns
+	>> dominio.com
+	- Una vez obtenidos los nombers de los servidores (NS) de la organización, se ejectua el comando
+	>> server ns1.dominio.es
+	>> ls dominio.es
+	- COn esto se cambia el servidor al que se realiza la petićión y, si el servidor tiene mal configuradas las transferencias de zona se obtendrá gran cantidad de información. 
+	

@@ -1,0 +1,18 @@
+COMANDOS BÁSICOS DE BASES DE DATOS EN METASPLOIT
+-------------------------------------------------
+
+1) Conectar con base de datos 
+	>> db_connect usuario:contraseña@127.0.0.1/metasploit
+
+
+2) Cambiar contraseña de usuario postresql
+	>> sudo su postreges -c psql
+	>> alter user with password '123abc.';
+	>> \q
+
+3) Importar resultados
+ - db_import fichero.xml
+ - puede ser un fichero de nmap, por ejemplo.
+
+ 4) db_hosts
+ 	- Permite visualizar los hosts analizados para y cargados en las bases de datos de los que se dispone información
