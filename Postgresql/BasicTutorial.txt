@@ -1,0 +1,62 @@
+TUTORIAL BÁSICO DE BASES DE DATOS EN POSTGRESQL
+------------------------------------------------
+
+1) USARIOS
+
+- En postgresql cada usuario se define por un rol. 
+- POr defecto existe un usuario llamado postgres
+- Para cambiar a dicho usuario:
+	>> sudo -i -u postgres
+- Ahora se podría iniciar en postgres con 
+	>> psql
+	>> \q		# Para salir
+
+- Si queremos crear un nuevo usuario hay que hacer varias cosas:
+	- Crear el usuario desde uno existente:
+	- >>sudo -u postgres createuser --interactive
+	- Asignar una base de datos con su mismo nombre, pues postgresql así lo asocia.
+	- sudo -u createdb testuser
+	- Crear un usuario en linux para que pueda usarlo
+	- >> sudo useradd testuser
+	- Ahora ya se podría comenzar simplemente logueandonos
+	- Para conectarse a otra base desde este usuario
+		>> sudo -i -u testuser
+		>> psql -d postgres
+
+2) COMANDOS BÁSICOS
+	
+	- Crear tabla
+	>> CREATE TABLE table_name(
+		column_name1 col_type (field_length) column_constraints,
+		column_name2 col_type (field_length) column_constraints,
+		);
+
+	>> CREATE TABLE playground(
+		equip_id serial PRIMARY KEY,
+		type varchar (50) NOT NULL,
+		color varchar(50) NOT NULL,
+		location varchar(50) check (location in ('north','west','east','south')),
+		instal_date date
+		);
+	- Añadir valores
+	>> INSERT INTO playground (type,color, location) VALUES ('slide','blue','south');
+	>> INSERT INTO playground (type,color, location) VALUES ('slide','yellow','north');
+
+	- Ver tablas creadas
+		>> \d
+		>> \dt
+
+	- Ver valores en una tabla
+		>> SELECT * FROM playground;
+
+	- Añadir columnas de la tabla
+
+		>> ALTER TABLE playground ADD last_maint instal_date;
+		>> ALTER TABLE playground DROP last_maint;
+
+	- BOrrar entrada
+		>> DELETE FROM playground WHERE type = 'red';
+
+	- Actualizar datos
+		>> UPDATE playground SET color = 'red' WHERE type = 'swing';
+
