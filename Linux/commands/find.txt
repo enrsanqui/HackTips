@@ -1,0 +1,56 @@
+USO DE EL COMANDO FIND
+----------------------
+
+1) General
+	- find [ruta] [expresion de busqueda] [accion]
+2) Básicas
+	>> find / -name reporte
+	>> find / -iname Reporte (igual pero case insensitive) 
+	>> find / -name "[0-9]*"
+	>> find / -name "[a-m][0-9]*.txt"
+	>> find /home -u mario
+3) Búsquedas temporales
+
+	+n,-n,n --> busca cosas que hayan cambiado hace mas de, menos de o exactamente n
+
+	>> find / -mmin -30 -type # Busca archivos que hayan cambiado hace menos de 30 min
+	>> find / -mmin +10 -mmin -30 -type d 		# Busca directorios que hayan cambiado hace más de 10 min pero menos de 30.
+
+	- Existen diferentes opciones temporales:
+	ofrece varias opciones de búsqueda por tiempo, pero las principales son: -amin, -atime, -cmin, ctime, -mmin y -mtime. "min" es para periodos de minutos y "time" para periodos de 24 horas.
+
+	Los que empiezan con "a" (access) indica el tiempo en que fue accedido (leido) por última vez un archivo. Los que empiezan con "c" (change) indica el tiempo que cambió por última vez el status de un archivo, por ejemplo sus permisos. Los que empiezan con "m" (modify) indica el tiempo en que fue modificado (escrito) por última vez un archivo.
+
+	find . -mtime 0  (busca archivos modificados entre ahora y hace un dia)
+	find . -mtime -1  (busca archivos modificados hace menos de un dia)
+	find . -atime 1  (busca archivos accedidos entre hace 24 y 48 horas)
+	find . -ctime +1  (busca archivos cuyo status haya cambiado hace más de 48 horas)
+
+4) Operadores booleanos
+	>>find /home -name 'ventas*' -and -mmin 120 
+	>>find /home -name 'reporte[_-]*' -not -user sergio
+	>>find /home -iname '*enero*' -or -group gerentes
+
+	-and se puede indicar también como -a
+	-or se puede indicar también como -o
+	-not se puede indicar también como !
+
+5) Búsqueda por tamaño
+	>>find /var/log -size +15000k -name "*.jpg" (busca archivos mayores a 15 megas del tipo jpg)
+	>>find $HOME -800c  (busca en tu home todos los archivos menores a 800 bytes (799 realmente))
+
+(archivos de tamaño comprendidos entre 1mb y 10mb)
+	>>find . -size +1000k -and -size -10000k  
+
+	c = bytes
+	w = 2 byte words
+	k = kilobytes
+	b = 512-byte bloques 
+
+6) Ejecutar con -exec
+	>>find /var -size +3000k -exec ls -lh {} \; 		# Busca todos los archivos mayores de 3M en /var y listalos de forma formateada.
+
+
+	>> find /tmp -size +1024k -exec rm -f {} \;			# Busca todos los archivos mayores de 1M en /tmp y borralos. 
+
+	
