@@ -1,0 +1,18 @@
+Basic tutorial to phishing with Facebook
+-----------------------------------------
+1) Create a hosting:
+	- Recommended: T35 but it's not free!
+	- Tried in another free hosting and it works, though
+	  this isn't a big problem once we find a hosting.
+2) Go to facebook login page
+3) View source code and copy it.
+4) Paste it in a index.php file
+5) Change "method=post"  to "method=get" and "action=login.php"
+to "action=log.php"
+6) Use the log.php file allocated within this folder
+7) Upload both files to the hosting
+8) Send the url to the victim.  
+
+Be carefull because once logged, victim is redirected to the
+real login page and a warning is through.
+
