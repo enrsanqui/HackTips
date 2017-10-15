@@ -1,0 +1,14 @@
+Configuration of proxies to stay anonymous
+------------------------------------------
+1) Every command we want to hide from detection should be used within the command
+	>> proxychains [command]
+2) From the following list (or another) select one proxy.
+    Hide My Ass!
+    SamAir Security
+    Proxy4Free
+    Hide.me
+3) Edit /etc/proxychains.conf
+4) Comment line of the default mode which is configured to use Tor.
+5) Example
+	http	95.106.64.232:8080
+

