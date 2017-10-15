@@ -1,0 +1,9 @@
+IMPORT SQL DATABASE
+-------------------
+1) From the psql console, create a database
+	>> psql
+	>> CREATE DATABASE dvdrental;
+2) From the desired user:
+	>> pg_restore -U [user] -d /path/to/database.tar
+
+
