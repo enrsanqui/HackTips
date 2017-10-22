@@ -1,0 +1,9 @@
+LIMIT USE
+----------
+
+Used to limit number of results
+
+1) Basic
+	>> SELECT column FROM tab LIMIT n;
+2) Offset: to start from a certain entrain
+	>> SELECT column FROM tab LIMIT n OFFSET m;

@@ -1,0 +1,7 @@
+BETWEEN USE
+-----------
+
+Between is used to select values between certain range
+
+SELECT * FROM tab WHERE value BETWEEN min AND Max;
+

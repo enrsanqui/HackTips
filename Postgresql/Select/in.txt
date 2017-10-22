@@ -1,0 +1,10 @@
+Use of IN query
+---------------
+
+1) BASIC
+	>> SELECT colum FROM tab WHERE value IN
+	>> (value1,value2,...)
+
+2) SUBQUEREY
+	>> SELECT colum FROM tab
+	WHERE CAST (return_date AS DATE) = '2005-05-24';

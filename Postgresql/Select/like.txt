@@ -1,0 +1,8 @@
+LIKE, NOT LIKE, ILIKE, NOT ILIKE
+---------------------------------
+
+1) Used as a condition, to satisfy a pattern
+	>> SELECT column FROM tab WHERE column LIKE '_bar%'
+	- % is like * in most regular expressions
+	- _ is like ?
+2) ILIKE and NOT ILIKE is for insensitive

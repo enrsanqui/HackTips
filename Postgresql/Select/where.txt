@@ -1,0 +1,9 @@
+WHERE USE
+---------
+
+1) Basic syntax
+	>> SELECT [column1,column2,...]
+	   FROM tab_name
+	   WHERE condition;
+
+Not too much to say...
