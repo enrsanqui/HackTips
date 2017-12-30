@@ -1,0 +1,14 @@
+Permissions managin
+--------------------
+
+1) Meaning
+
+   >> r--> 4 activa
+   >> w--> 2 activa
+   >> x--> 1 activa
+
+   >> chmod 765 archivo --> Todos los permisos al usuario (4+3+1), permiso de lectura y escritura para el grupo (4+2) y permisos de lectura y ejecución para otros (4+1)
+
+2) Cambiar con UGO
+
+   >> chmod u+x, g+w archivo

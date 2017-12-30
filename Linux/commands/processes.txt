@@ -1,0 +1,14 @@
+Gestion de procesos
+---------------------
+
+1) ps aux
+
+Procesos (todos, usuario, terminal)
+
+2) Prioridades
+
+ --> nice
+     - Asigna prioridad a un proceso: -20 (maxima) +19 mínima
+     >> nice -n -20 airbase-ng -a 00:09:5B:a4:2F --essid "red" -c1 mon0
+
+     >> renice 19 PID

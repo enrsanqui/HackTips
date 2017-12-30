@@ -1,0 +1,30 @@
+BASIC NETWORKING COMMANDS
+-------------------------
+
+1) Cambiar ip
+
+   >> ifconfig [interfaz] [NuevaIP]
+   >> ifconfig eth0 192.168.1.114
+
+2) Tambien se pueden cambiar el resto de cosas
+
+   >> ifconfig wlan0 192.168.1.115 netmask 255.255.255.0 broadcast 192.168.1.255
+
+3) DHCP
+
+ Todo sitema linux dispone de un servidor DHCP, se puede utilizar para cambiar la configuración
+
+ >> dhcpclient
+
+ Al ejecutarlo se cambia la ip
+
+4) DNS
+
+   >> dig [pagina web]
+
+   Se obtienen los servidores, DNS y demás de la página
+   --> Se pueden utilizar diferentes opciones para obtener por ejemplo los de correo (mx)
+
+5) Podemos cambiar/añadir/eliminar los servidores DNS a los que realizamos peticiones
+   - Estan en /etc/resolv.conf
+
