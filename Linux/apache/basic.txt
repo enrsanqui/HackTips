@@ -1,0 +1,18 @@
+BASICS ABOUT APACHE WE SERVER
+------------------------------
+
+--> LAMP (Linux Apache MySQL,Perl and PHP)
+
+1) Start apache
+
+   >> service apache2 start
+
+2) Open default website
+
+   >> firefox http://localhost/
+
+3) We can configure our website page
+
+   >> emacs /var/www/html/index.html
+
+4) We can install DVWA (Damn Vulnerable Web Application to practice

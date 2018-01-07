@@ -1,0 +1,27 @@
+ENVIRONMENTAL VARIABLES
+-----------------------
+
+1) To see environmental variables
+
+   >> set
+
+2) To see a specific environmental variable
+
+   >> echo $VARIABLE
+
+3) To change an environmental variable
+
+   >> VARIABLE=NUEVA_VARIABLE
+
+   If wanna keep the changes
+
+   >> export VARIABLE
+
+4) Variable PATH
+
+   - Variable donde aparecen todos los path de los programas que queramos ejecutar. Para cambiarlo
+
+   >> PATH=$PATH:nueva/ruta/al/programa
+
+   >> export PATH
+

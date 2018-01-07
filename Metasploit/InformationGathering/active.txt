@@ -1,0 +1,40 @@
+Técnicas de information gathering activas
+-----------------------------------------
+
+1) Half Scan
+
+   -> Funciona con enviando un RST+ACK como respuesta al SYN+ACK en el procedimiento de Three-way handshake
+
+   >> auxiliary/scanner/portscan/tcp
+
+2) ACK Scan
+
+   -> El emisor envía un ACK activo y el receptor debe responder sí o sí con un RST, esté el puerto abierto o no. Si el puerto está accesible lo mandará y si no es que hay un firewall
+
+   >> auxiliary/scanner/portscan/ack
+
+3) Null Scan
+
+   -> Para puertos cerrados
+
+4) Xmas Scan
+
+   -> Poco viable. No responde si el puerto se encuentra abierto
+
+   >> auxiliary/scanner/portscan/xmas
+
+5) FIN Scan
+
+   -> Envía un paquete TCP con el bit FIN activo. La finalidad es la misma que l de los dos anteriores. Nmap los agrupa como scanneres de detección de puertos cerrados
+
+6) Idle Scan
+
+   -> En el escenario son necesarias 3 máquinas (una zombie).
+
+   -> Se envían paquetes SYN+ACK  a la máquina zombie para verificar que las respuestas son predecibles. Se debe obtener un RST y chequear que las respuestas son sucesivas y predecibles.
+
+   -> Entonces se envían paquetes SYN+ACK a la víctima pero utilizando IP Spoofing con la máquina zombie. Los paquetes de respuesta serán devueltos a la máquina zombie.
+
+   -> Pasado un tiempo el emisor preguntará a la máquina zombie por el ID de los paquetes y, si se ha incrementado en uno el puerto estará abierto y si no el puerto estará cerrado.
+
+   
