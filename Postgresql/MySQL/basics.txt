@@ -1,0 +1,23 @@
+Basics about MySQL
+--------------------
+
+1) Start
+
+   >> service mysql start
+   >> mysql -u root -p
+
+      start with the password
+
+2) Show databases
+
+   >> show databases;
+   >> use creditcardnumbers;
+   >> show tables;
+   >> describe cardnumbers;
+
+3) Export results
+
+   >> mysql --tab = /tmp --user root -p creditcardnumbers cardnumbers;
+
+   It will create a cardnumbers.sql file in /tmp
+

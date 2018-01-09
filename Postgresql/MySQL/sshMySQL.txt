@@ -1,0 +1,15 @@
+SSH on MySQL
+---------------
+
+1) Generate key
+
+   >> ssh-keygen
+
+2) Connect by ssh to mysql server
+
+   >> ssh -L:3316:127.0.0.1:3309 testdb@172.20.10.7
+
+   -> This tells to connect by ssh and listen in the port 3316 of the host 127.0.0.1 to the 3309 port with the user testdb at the IP 172.20.10.7
+
+3) Now we can use it
+
