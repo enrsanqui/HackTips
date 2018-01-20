@@ -1,0 +1,14 @@
+TOOLS
+-----
+
+1) smtp-user-enum --> Examples of use in the help
+2) Conect to telnet at port 25:
+
+   >> telnet 192.168.1.23 25
+
+3) CentralOps.net --> Portal interesante
+
+4) Nmap NSE SMTP scripts
+
+5) Swaks --> Sólo con el dominio ya se obtienen cosas
+

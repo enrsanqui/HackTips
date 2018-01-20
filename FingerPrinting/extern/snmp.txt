@@ -1,0 +1,7 @@
+TOOLS
+---------
+
+1) snmpcheck --> Propporciona información dada la IP de la víctima, por ejemplo.
+
+2) snmpwalk --> Más complicado de usar: mirar la ayuda.
+
