@@ -1,0 +1,14 @@
+CREATE LINKS TO THE FILES
+-------------------------
+
+1) Two types of links:
+
+   - Hard link, exactly the same file size and properties. They have to be in the same file system
+
+   - Soft link: it's a symbolic link and it's like a pointer.
+
+2) Commands:
+
+   >> ln [current_file] [new_link]
+   >> ln msfconsole metasploit
+   >> ln -s [current_file] [new_link]
