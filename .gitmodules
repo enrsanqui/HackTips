@@ -1,0 +1,12 @@
+[submodule "Github/flu"]
+	path = Github/flu
+	url = https://github.com/fluproject/flu.git
+[submodule "Github/TheFatRat"]
+	path = Github/TheFatRat
+	url = https://github.com/Screetsec/TheFatRat.git
+[submodule "Github/cupp"]
+	path = Github/cupp
+	url = https://github.com/Mebus/cupp.git
+[submodule "Github/ps1encode"]
+	path = Github/ps1encode
+	url = https://github.com/CroweCybersecurity/ps1encode.git
