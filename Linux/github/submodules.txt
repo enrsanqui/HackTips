@@ -1,0 +1,20 @@
+BASIC USE OF SUBMODULES IN GITHUB
+_________________________________
+
+1) Alojar el submodulo
+
+   >> mkdir nombreDelModulo
+
+2) Indicarle a github que es un submodulo
+
+   >> git submodule add git@github.com:url_to/awesome_submodule.git nombrDelModulo
+
+
+   O
+
+   >> git submodule add https://github.com/path_del_submodulo nombreDelModulo
+
+3) Para inicializarlo y que se descarguen las cosas
+
+   >> git submodule update --init --recursive
+
