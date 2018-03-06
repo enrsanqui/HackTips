@@ -13,3 +13,6 @@
 [submodule "Github/Security-bash-scripts"]
 	path = Github/Security-bash-scripts
 	url = https://github.com/fluproject/Security-bash-scripts.git
+[submodule "RubberDucky"]
+	path = RubberDucky
+	url = https://github.com/hak5darren/USB-Rubber-Ducky.git
