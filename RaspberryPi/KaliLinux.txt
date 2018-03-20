@@ -69,7 +69,7 @@ TUTORIAL PARA INSTALAR Y CONFIGURAR KALI LINUX EN RASPBERRY PI
     >> apt-get install tightvncserver
 
     >> tightvnc	       --> to start vnc service and create a password
-
+v
     --> Crear un script en /etc/init.d/vncboot
 
         #!/bin/sh
