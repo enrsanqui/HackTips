@@ -1,0 +1,100 @@
+RASPBERRY PI ACCESS POINT
+_________________________
+
+
+1) Updtate upgrade
+
+   >> apt update && apt upgrade
+
+2) Install hostapd and dnsmasq
+
+   --> Hay otras opciones que dnsmasq pero esta es la que nos ha funcionado de momento. Es basicamente para configurar el dhcp
+
+   >> apt-get install hostapd dnsmasq
+
+3) Desactivar los servicios
+
+   >> systemctl stop hostapd
+   >> systemctl stop dnsmasq
+
+4) Configuring static IP
+
+   >> nano /etc/dhcpcd.conf
+
+   --> Añadir al final la siguiente linea
+
+   >> interface wlan0 static ip_address=192.160.0.10/24 (puede ser otra, ejemplo 192.168.220.1)
+   >> denyinterfaces wlan0
+   >> denyinterfaces eth0 (creo que esto se puede comentar)
+
+   --> Guardar el archivo y reiniciar el servicio
+
+   >> sudo service dhcpcd restart
+
+ 5) Configurar el dnsmasq
+
+    --> Movemos el original
+
+    	>> mv /etc/dnsmasq.conf /etc/dnsmasq.conf.orig
+
+	>> nano /etc/dnsmasq.conf
+
+    --> Metemos la siguiente información
+
+    	>> interface=wlan0
+	>> dhcp-range=192.168.0.11,192.168.0.30,255.255.255.0,24h
+
+	--> Básicamente hemos dado un rango de 20 direcciones IP con su mascara de subred y una liberacion de IP cada 24 horas. Puede ponerse cada 12 y puede configurarse por ejemnplo la puerta de enlace o la red, pero no suele ser necesario.
+
+    --> GUardamos y a huir
+
+
+6) Configurar hostapd
+
+   >> nano /etc/hostapd/hostapd.conf
+
+   interface=wlan0
+   driver=nl80211
+   ssid=NameOfNetwork
+   hw_mode=g
+   chanel=7
+   wmm_enabled=0
+   macaddr_acl=0
+   ignore_broadcast_ssid=0
+   wpa=2
+   wpa_passphrase=COntraseña
+   wpa_key_mgmt=WPA-PSK
+   wpa_pairwise=TKIP
+   rsn_pairwise=CCMP
+
+   >> nano /etc/default/hostapd
+
+   --> Editar la linea siguiente
+
+   >> DAEMON_CONF=""
+   >> DAEMON_CONF="/etc/hostapd/hostapd.conf"
+
+ 7) Probar configuración
+
+    >> service hostapd start
+    >> service dnsmasq start
+
+    --> Ya con eso debería verse el punto de acceso
+
+
+TROUBLESHOOTING Y DEMÁS
+_______________________
+
+1) El servicio hostapd.service se encuentra enmascarado
+
+   >> systemctl unmask hostapd
+
+2) Igual es necesario cargarse los servicios antes de poder hacer las cosas
+
+   >> systemctl stop hostapd
+
+   >> systemctl stop dnsmasq
+
+3) El archivo de configuracićon dhcpcd.conf parece ser el correcto, lo que resultad e una combinación de varios articulos de internet
+
+4) Faltaría añadir una regla de IP forwarding que nos permitiera que la la RBP actuara como adaptador de puente para darnos internet. Esto no es necesario en la mayoría de los casos. En este caso supongo que no se podría utilizar el denyinterfaces eht0/wlan1 en dhcpcd.conf ya que nos las cargaríamos. Faltaría añadir las reglas de ipv4 NO PROBADAS!! Normalmente no queremos esto sino que querremos conectarnos a traves del movil direcamente por los datos o bien utilizar la RBP como AP y poner el alpha en modo monitor.
