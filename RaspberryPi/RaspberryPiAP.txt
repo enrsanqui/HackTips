@@ -81,6 +81,12 @@ _________________________
 
     --> Ya con eso debería verse el punto de acceso
 
+ 8) Ahora configuramos para que inicie el servicio hostapd y dnsmasq al inicio
+
+    >> update-rc.d -f hostapd enable 2 3 4 5
+    >> update-rc.d -f dnsmasq enable 2 3 4 5
+
+
 
 TROUBLESHOOTING Y DEMÁS
 _______________________
@@ -98,3 +104,4 @@ _______________________
 3) El archivo de configuracićon dhcpcd.conf parece ser el correcto, lo que resultad e una combinación de varios articulos de internet
 
 4) Faltaría añadir una regla de IP forwarding que nos permitiera que la la RBP actuara como adaptador de puente para darnos internet. Esto no es necesario en la mayoría de los casos. En este caso supongo que no se podría utilizar el denyinterfaces eht0/wlan1 en dhcpcd.conf ya que nos las cargaríamos. Faltaría añadir las reglas de ipv4 NO PROBADAS!! Normalmente no queremos esto sino que querremos conectarnos a traves del movil direcamente por los datos o bien utilizar la RBP como AP y poner el alpha en modo monitor.
+

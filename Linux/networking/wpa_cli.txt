@@ -1,0 +1,26 @@
+BASIC CONNECTION BY COMMAND LINE USING WPA_CLI INTERFACE
+_________________________________________________________
+
+
+>> wpa_cli
+
+$ scan
+
+$ scan_results
+
+$ add_network
+[grab the number, typically 0]
+
+$ set_network 0 ssid "nombre d ela red"
+$ set_network 0 psk "password de la red"
+
+$ enable_network
+
+$ reconnect
+
+$ status
+
+$ quit
+
+>> dhclient -r
+>> dhclient wlan1
