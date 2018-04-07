@@ -16,3 +16,9 @@
 [submodule "RubberDucky/USB-Rubber-Ducky"]
 	path = RubberDucky/USB-Rubber-Ducky
 	url = https://github.com/hak5darren/USB-Rubber-Ducky.git
+[submodule "Android/HackingAndroid/EvilDroid"]
+	path = Android/HackingAndroid/EvilDroid
+	url = https://github.com/M4sc3r4n0/Evil-Droid.git
+[submodule "WPA/fluxion"]
+	path = WPA/fluxion
+	url = https://github.com/wi-fi-analyzer/fluxion.git
