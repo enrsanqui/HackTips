@@ -1,0 +1,58 @@
+SETUP TO STAY AS MUCH ANONYMOUS AS POSSIBLE
+___________________________________________
+
+We will make an almost full anonymization through TOR, PIA VPN and whonix
+
+   *Should learn more about whonix and how it works
+
+1) Everything must be install through Virtual Box
+
+2) Download Kali image, whonix gateway (no need for workstation) and a VPN service.
+
+3) A correct VPN service
+
+   - Private Internet Access seems ok and interesting, although a payment is needed.	70$/two years
+
+   - Nord VPN is also ok
+
+
+   --> We will choose when necessary PIA, seems good
+
+4) Install whonix gateway in virtualbox
+
+5) Install kali in virtual box
+
+6) Connect them
+
+   - Boot whonix
+
+   - Configurar la máquina de kali para connectarse a una red interna
+
+   - Deshabilitar el adaptador
+
+     >> ifconfig eth0 down
+
+     	- Se actualizará el /etc/resolv.conf con el nameserver de whonix
+
+     >> nano /etc/resolv.conf
+
+     >> nameserver 10.152.152.10
+
+     >> /etc/network/interfaces
+
+     	iface eth0 inet static
+	address 10.152.152.11
+	netmask 255.255.192.0
+	gateway 10.152.152.10
+
+     >> ifup eth0
+
+     COn esto ya tenemos el tráfico dirigido por Tor
+
+
+7) Añadir una VPN
+
+   - Se añade la VPN a whonix no al host
+
+   
+   
