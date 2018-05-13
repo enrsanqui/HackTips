@@ -1,0 +1,11 @@
+Python whois
+____________
+
+--> Servidor raíz
+
+>> import pythonwhois
+>> pythonwhois.net.get_root_server('<Dominio>')
+>> whois = pythonwhois.get_whois(<dominio>) #Devuelve un diccionario
+>> whois_raw = pythonwhois.net.get_whois_raw(<dominio>)
+>> import pprint
+>> print.pprint(whois_raw)

@@ -1,0 +1,11 @@
+Obtener information DNS con Python
+_________________________________
+
+>> import dns
+>> import dns.resolver
+
+>> ansA = dns.resolver.query('<urlObjetivo>','<Tipo>')
+>> ansMX = dns.resolver.query('google.com','MX')
+
+>> pritn ansA.response.to_text()
+

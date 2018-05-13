@@ -1,0 +1,16 @@
+Obtener information DNS con Python
+_________________________________
+
+>> import dns
+>> import dns.resolver
+
+>> ansA = dns.resolver.query('<urlObjetivo>','<Tipo>')
+>> ansMX = dns.resolver.query('google.com','MX')
+
+>> pritn ansA.response.to_text()
+
+--> Realizar una transferencia de zona
+
+>> import dns.query
+>> import dns.zone
+>> zone = dns.zone.from_xfr(dns.query.xfr('<IP Servidor principal>','<Dominio controlado atacante'))

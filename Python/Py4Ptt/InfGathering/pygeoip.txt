@@ -1,0 +1,15 @@
+Geolocalizacion con python
+_________________________
+
+>> import pygeoip
+>> gi = pygeoip.GeoIP(<Base de datos>)	# Típicamente será GeoLiteCity.dat, guardada en nuestro github y que puede ser encontrada en http://dev.maxmind.com/geoip/legacy/geolite
+
+>> gi.country_code_by_name(<Nombre del dominio>)
+>> gi.record_by_addr(<IP>)
+>> gi.country_name_by_addr(<IP>)
+git.time_zone_by_addr(<IP>)
+
+--> Existen bases de datos para direcciones IPv6
+
+>> giAsn = pygeoip.GeoIP('GeoIPASNum.dat')
+>> giAsn.isp_by_name('google.com')
