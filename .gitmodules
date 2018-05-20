@@ -22,3 +22,6 @@
 [submodule "WPA/fluxion"]
 	path = WPA/fluxion
 	url = https://github.com/wi-fi-analyzer/fluxion.git
+[submodule "Python/Py4Ptt/InfGathering/ShodanAPI"]
+	path = Python/Py4Ptt/InfGathering/ShodanAPI
+	url = https://github.com/achillean/shodan-python.git

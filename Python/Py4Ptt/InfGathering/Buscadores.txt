@@ -1,0 +1,26 @@
+INFORMATION GATHERING CON PYTHON Y BUSCADORES
+______________________________________________
+
+1) Google hacking
+
+   -> Herramienta para google hacking: http://www.secpoint.com/freetools
+
+   >> python googleDB-tool.py "login_pages.txt" -o salida.txt -s www.objetivo.com
+
+   >> python googleDB-tool.py "network_or_vulnerability_data.txt" -o salida.txt -s www.objetivo.com
+
+
+2) SHodan
+
+   -> Shodan disponde una API para poder utilizarlo con python
+
+   -> Algunos de los filtros de shodan
+
+      - city
+      - country
+      - geo
+      - hostname
+      - net: para segmentos de red
+      - os: para sistemas op
+      - port
+
