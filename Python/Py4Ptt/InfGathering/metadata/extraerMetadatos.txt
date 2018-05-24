@@ -1,0 +1,19 @@
+EXTRAER METADATOS DE PDF CON PYTHON
+__________________________________
+
+1) Descargar e instalar la utilidad pypdf2
+
+   >> pip install pypdf2
+
+2) Programa
+
+from PyPDF2 import PdfFileReader, PdfFileWriter
+def printMeta():
+    pdfFile = PdfFileReader(file("<ruta donde esté el pdf>",'rb'))
+    docInfo = pdfFile.getDocumentInfo()  # Devuelve un diccionario
+    for metaItem in docInfo:
+    	print '[+] '+ metaItem + ':' + docInfo[metaItem]
+
+if __name__ == "__main__":
+   printMeta()
+
